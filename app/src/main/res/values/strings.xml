@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MotionRecyclerView</string>
+    <string name="title_0">Title 1</string>
+    <string name="title_1">Title 2</string>
+    <string name="title_2">Title 3</string>
+    <string name="title_3">Title 4</string>
+    <string name="title_4">Title 5</string>
+</resources>

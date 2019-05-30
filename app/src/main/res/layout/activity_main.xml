@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                      xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                      xmlns:tools="http://schemas.android.com/tools"
+                                                      android:id="@+id/root"
+                                                      android:layout_width="match_parent"
+                                                      android:layout_height="match_parent"
+                                                      app:layoutDescription="@xml/motion_scene_expand"
+                                                      tools:context=".MainActivity">
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerList"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/row_item"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+    <androidx.constraintlayout.motion.widget.MotionLayout
+            android:id="@+id/animatedView"
+            android:layout_width="10dp"
+            app:layoutDescription="@xml/motion_scene_inner_expand"
+            android:background="#fff"
+            android:layout_height="10dp">
+
+        <ImageView android:id="@+id/animated_logo" android:layout_width="150dp" android:layout_height="0dp"
+                   android:src="@drawable/ic_0"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toTopOf="parent"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   app:layout_constraintDimensionRatio="3:2"
+                   android:layout_margin="4dp"/>
+
+        <TextView android:id="@+id/animated_title" android:layout_width="wrap_content" android:layout_height="100dp"
+                  android:text="title"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintTop_toBottomOf="@id/logo"
+                  android:layout_marginTop="16dp"
+                  android:paddingBottom="16dp"/>
+    </androidx.constraintlayout.motion.widget.MotionLayout>
+
+</androidx.constraintlayout.motion.widget.MotionLayout>
