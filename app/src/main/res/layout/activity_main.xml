@@ -22,6 +22,8 @@
     <androidx.constraintlayout.motion.widget.MotionLayout
             android:id="@+id/animatedView"
             android:layout_width="10dp"
+            android:clickable="true"
+            android:focusable="true"
             app:layoutDescription="@xml/motion_scene_inner_expand"
             android:background="#fff"
             android:layout_height="10dp">

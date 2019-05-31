@@ -7,10 +7,23 @@
             motion:constraintSetStart="@+id/start"
             motion:constraintSetEnd="@+id/end"
             motion:duration="1000">
-        <OnSwipe
-                motion:touchAnchorId="@id/animatedView"
-                motion:touchAnchorSide="top"
-               motion:dragDirection="dragUp" />
+
+
+        <KeyFrameSet>
+            <KeyPosition
+                    motion:keyPositionType="parentRelative"
+                    motion:percentY="0.25"
+                    motion:framePosition="50"
+                    motion:motionTarget="@+id/animatedView"/>
+            <KeyPosition
+                    motion:alpha="1"
+                    motion:framePosition="1"
+                    motion:motionTarget="@+id/animatedView"/>
+            <KeyPosition
+                    motion:alpha="0"
+                    motion:framePosition="0"
+                    motion:motionTarget="@+id/animatedView"/>
+        </KeyFrameSet>
     </Transition>
 
 
@@ -28,10 +41,12 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 motion:progress="1"
+                motion:alpha="1"
                 motion:layout_constraintStart_toStartOf="parent"
                 motion:layout_constraintTop_toTopOf="parent"
                 motion:layout_constraintBottom_toBottomOf="parent"
                 motion:layout_constraintEnd_toEndOf="parent"/>
     </ConstraintSet>
+
 
 </MotionScene>

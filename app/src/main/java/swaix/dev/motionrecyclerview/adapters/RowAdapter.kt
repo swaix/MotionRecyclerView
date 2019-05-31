@@ -17,7 +17,7 @@ fun ViewGroup.inflate(@LayoutRes layoutRes: Int, attachToRoot: Boolean = false):
     return LayoutInflater.from(context).inflate(layoutRes, this, attachToRoot)
 }
 
-class RowAdapter(private val dataset: List<Model>, private val onItemTouch: (View, Model) -> Unit) :
+class RowAdapter(val dataset: List<Model>, private val onClick: (View, Model) -> Unit) :
     RecyclerView.Adapter<RowViewHolder>() {
 
     var lastTouched: View? = null
@@ -30,13 +30,8 @@ class RowAdapter(private val dataset: List<Model>, private val onItemTouch: (Vie
 
     override fun onBindViewHolder(holder: RowViewHolder, position: Int) {
         holder.bind(dataset[position])
-        holder.itemView.setOnTouchListener { v, e ->
-            v.visibility = View.INVISIBLE
-            lastTouched?.visibility = View.VISIBLE
-            lastTouched = v as View
-
-            onItemTouch(v, dataset[position])
-            true
+        holder.itemView.setOnClickListener {
+            onClick(holder.itemView, dataset[position])
         }
     }
 }
